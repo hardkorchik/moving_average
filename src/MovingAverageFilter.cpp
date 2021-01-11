@@ -81,7 +81,7 @@ void MovingAverageFilter<T>::MovingAverageFilterRun(){
 
 
 template <typename T>
-void MovingAverageFilter<T>::save_input_data(char* filename) {
+void MovingAverageFilter<T>::save_input_data(string filename) {
 
 	ofstream input_file(filename);
 
@@ -95,7 +95,7 @@ void MovingAverageFilter<T>::save_input_data(char* filename) {
 
 
 template <typename T>
-void MovingAverageFilter<T>::save_output_data(char* filename) {
+void MovingAverageFilter<T>::save_output_data(string filename) {
 
 	ofstream output_file(filename);
 	

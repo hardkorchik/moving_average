@@ -42,7 +42,7 @@ public:
 
 	void MovingAverageFilterRun();
 
-	void save_input_data(char* filename);
-	void save_output_data(char* filename);
+	void save_input_data(string filename);
+	void save_output_data(string filename);
 
 };
