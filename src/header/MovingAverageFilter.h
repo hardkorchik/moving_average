@@ -3,6 +3,9 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <fstream>
+#include <stdint.h>
+#include <ctime> 
+#include <string>
 
 #define DEFINE_LENGTH 1000000;
 
