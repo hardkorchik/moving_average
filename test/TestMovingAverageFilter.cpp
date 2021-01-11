@@ -6,6 +6,7 @@ __asm__ __volatile__ ("rdtsc" : "=a" (lo), "=d" (hi));
 return ((uint64_t)hi << 32) | lo;
 }
 
+
 int main() {
 
   const static int size_data = 1000000;
@@ -14,7 +15,6 @@ int main() {
 
   int length_filter[6] = {4, 8 ,16, 32, 64, 128};
 
-  clock_t cl;
   output_file<<"\n"<<"double"<<"\n";
   /*measurements for double*/
   for(int i =0 ; i < 6; i++){
@@ -29,15 +29,17 @@ int main() {
 
     movingAverage_1.save_input_data("result_file/" + to_string(i) + "_input.txt");
 
-    cl = clock( );
-    double tm = (double)cl / (double)CLOCKS_PER_SEC;
+    clock_t cl = clock( );
 
     movingAverage_1.MovingAverageFilterRun();
 
-    cl = clock( );
-    double tm2 = (double)cl / (double)CLOCKS_PER_SEC;
+    clock_t cl2 = clock( );
 
-    output_file<<tm2 - tm<<" ";
+    clock_t clockTicksTaken  = cl2 - cl;
+
+    double timeInSeconds = clockTicksTaken / (double) CLOCKS_PER_SEC;
+
+    output_file<<timeInSeconds<<" ";
 
     movingAverage_1.save_output_data("result_file/" + to_string(i) + "_output.txt");
 
@@ -57,15 +59,17 @@ int main() {
 
     movingAverage_2.save_input_data("result_file/" + to_string(i) + "_input.txt");
 
-    cl = clock( );
-    double tm = (double)cl / (double)CLOCKS_PER_SEC;
+    clock_t cl = clock( );
 
     movingAverage_2.MovingAverageFilterRun();
 
-    cl = clock( );
-    double tm2 = (double)cl / (double)CLOCKS_PER_SEC;
+    clock_t cl2 = clock( );
 
-    output_file<<tm2 - tm<<" ";
+    clock_t clockTicksTaken  = cl2 - cl;
+
+    double timeInSeconds = clockTicksTaken / (double) CLOCKS_PER_SEC;
+
+    output_file<<timeInSeconds<<" ";
 
     movingAverage_2.save_output_data("result_file/" + to_string(i) + "_output.txt");
 

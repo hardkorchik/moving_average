@@ -4,7 +4,7 @@
 #include <assert.h>
 #include <fstream>
 #include <stdint.h>
-#include <ctime> 
+#include <chrono>
 #include <string>
 
 #define DEFINE_LENGTH 1000000;
