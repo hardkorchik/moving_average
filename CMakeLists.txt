@@ -9,6 +9,7 @@ set(SOURCE_LIB src/MovingAverageFilter.cpp)
 
 set(HEADER src/header/MovingAverageFilter.h)
 
+set(HEADER src/MovingAverageFilter.h)
 
 add_library(MovingAverageFilter STATIC ${SOURCE_LIB})	
 

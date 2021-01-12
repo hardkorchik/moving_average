@@ -1,5 +1,5 @@
 #include "header/MovingAverageFilter.h"
-
+#include "moving_average_filter.h"
 
 template <typename T>
 MovingAverageFilter<T>::MovingAverageFilter(int length_data) {
@@ -59,24 +59,12 @@ void MovingAverageFilter<T>::set_random_value(){
 template <typename T>
 void MovingAverageFilter<T>::MovingAverageFilterRun(){
 
-	T current_sum = 0;
-
 	if(!set_filter_length){
 		filter_length = default_filter_length;
 	}
 
-	/*counting the first time the value of the sum of the window elements*/
-	for(int i=0; i < filter_length; i++){
-		current_sum += input_data[i];
-	}
+	moving_average_filter(input_data, output_data, size_data, filter_length);
 
-	/*calculating the average for all remaining values*/
-	for(int i = 0; i < size_data - filter_length; i++){
-
-		output_data[i + filter_length] = current_sum / filter_length;
-
-		current_sum = current_sum - input_data[i] + input_data[i + filter_length];
-	}
 }
 
 
