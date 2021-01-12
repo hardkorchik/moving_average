@@ -9,7 +9,7 @@ return ((uint64_t)hi << 32) | lo;
 
 int main() {
 
-  const static int size_data = 1000000;
+  const static int size_data = 10000000;
 
   ofstream output_file("result_file/time");
 
@@ -29,15 +29,15 @@ int main() {
 
     movingAverage_1.save_input_data("result_file/" + to_string(i) + "_input.txt");
 
-    clock_t cl = clock( );
+    auto cl = clock( );
 
     movingAverage_1.MovingAverageFilterRun();
 
-    clock_t cl2 = clock( );
+    auto cl2 = clock( );
 
-    clock_t clockTicksTaken  = cl2 - cl;
+    auto clockTicksTaken  = cl2 - cl;
 
-    double timeInSeconds = clockTicksTaken / (double) CLOCKS_PER_SEC;
+    auto timeInSeconds = clockTicksTaken / (double) CLOCKS_PER_SEC;
 
     output_file<<timeInSeconds<<" ";
 
@@ -45,11 +45,11 @@ int main() {
 
   }
 
-  output_file<<"\n"<<"int"<<"\n";
-  /*measurements for int*/
+  output_file<<"\n"<<"float"<<"\n";
+  /*measurements for float*/
   for(int i =0 ; i < 6; i++){
 
-    MovingAverageFilter<int> movingAverage_2(size_data);
+    MovingAverageFilter<float> movingAverage_2(size_data);
 
     movingAverage_2.clear();
 
@@ -59,15 +59,15 @@ int main() {
 
     movingAverage_2.save_input_data("result_file/" + to_string(i) + "_input.txt");
 
-    clock_t cl = clock( );
+    auto cl = clock( );
 
     movingAverage_2.MovingAverageFilterRun();
 
-    clock_t cl2 = clock( );
+    auto cl2 = clock( );
 
-    clock_t clockTicksTaken  = cl2 - cl;
+    auto clockTicksTaken  = cl2 - cl;
 
-    double timeInSeconds = clockTicksTaken / (double) CLOCKS_PER_SEC;
+    auto timeInSeconds = clockTicksTaken / (double) CLOCKS_PER_SEC;
 
     output_file<<timeInSeconds<<" ";
 

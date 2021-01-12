@@ -11,6 +11,8 @@ set(HEADER src/header/MovingAverageFilter.h)
 
 set(HEADER src/MovingAverageFilter.h)
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mavx -O3")
+
 add_library(MovingAverageFilter STATIC ${SOURCE_LIB})	
 
 add_executable(main ${SOURCE_EXE})	

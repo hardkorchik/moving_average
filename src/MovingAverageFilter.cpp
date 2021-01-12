@@ -96,5 +96,5 @@ void MovingAverageFilter<T>::save_output_data(string filename) {
 }
 
 
-template class MovingAverageFilter<int>;
+template class MovingAverageFilter<float>;
 template class MovingAverageFilter<double>;
