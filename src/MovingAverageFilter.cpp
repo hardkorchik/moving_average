@@ -4,6 +4,9 @@
 template <typename T>
 MovingAverageFilter<T>::MovingAverageFilter(int length_data) {
 
+	if(length_data <= 0) 
+  		throw 1;
+
 	size_data = length_data;
 
 	input_data = new T[size_data];
@@ -14,7 +17,7 @@ MovingAverageFilter<T>::MovingAverageFilter(int length_data) {
 template <typename T>
 MovingAverageFilter<T>::MovingAverageFilter() {
 
-	size_data = DEFINE_LENGTH;
+	size_data = DEFINE_SIZE_DATA;
 
 	input_data = new T[size_data];
 	output_data = new T[size_data];
@@ -60,7 +63,7 @@ template <typename T>
 void MovingAverageFilter<T>::MovingAverageFilterRun(){
 
 	if(!set_filter_length){
-		filter_length = default_filter_length;
+		filter_length = DEFINE_FILTER_LENGTH;
 	}
 
 	moving_average_filter(input_data, output_data, size_data, filter_length);

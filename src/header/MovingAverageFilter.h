@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <stdlib.h>
 #include <assert.h>
@@ -7,7 +6,8 @@
 #include <chrono>
 #include <string>
 
-#define DEFINE_LENGTH 1000000;
+#define DEFINE_SIZE_DATA 1000000;
+#define DEFINE_FILTER_LENGTH 4;
 
 using namespace std;
 
@@ -20,10 +20,8 @@ private:
 	T * output_data;
 
 	int size_data;
-
-	const static int default_filter_length = 4;
-
 	int filter_length;
+	
 	bool set_filter_length = false;
 
 public:

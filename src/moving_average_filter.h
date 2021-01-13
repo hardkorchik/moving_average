@@ -1,5 +1,15 @@
+#include <iostream>                          // для оператора cout
+#include <cassert>
+
 template <typename T>
 void moving_average_filter(T * input_data, T * output_data, int size_data, int filter_length){
+
+  	if(size_data <= 0) 
+  		throw 1;
+
+  	if(filter_length <= 0)
+  		throw 2;
+
 
 	T current_sum = 0;
 

@@ -6,7 +6,6 @@ __asm__ __volatile__ ("rdtsc" : "=a" (lo), "=d" (hi));
 return ((uint64_t)hi << 32) | lo;
 }
 
-
 int main() {
 
   const static int size_data = 10000000;
@@ -15,7 +14,7 @@ int main() {
 
   int length_filter[6] = {4, 8 ,16, 32, 64, 128};
 
-  output_file<<"\n"<<"double"<<"\n";
+  output_file<<"double"<<"\n";
   /*measurements for double*/
   for(int i =0 ; i < 6; i++){
 
@@ -31,8 +30,19 @@ int main() {
 
     auto cl = clock( );
 
-    movingAverage_1.MovingAverageFilterRun();
+    try{
 
+      movingAverage_1.MovingAverageFilterRun();
+
+    }
+
+    catch(int thr){
+
+      if(thr == 1) cout << "Error " << thr<< " - size_data <= 0"  << endl;
+
+      if(thr == 2) cout << "Error " << thr<< " - length_filter <= 0"  << endl;
+      
+    }
     auto cl2 = clock( );
 
     auto clockTicksTaken  = cl2 - cl;
@@ -61,7 +71,19 @@ int main() {
 
     auto cl = clock( );
 
-    movingAverage_2.MovingAverageFilterRun();
+    try{
+
+      movingAverage_2.MovingAverageFilterRun();
+
+    }
+
+    catch(int thr){
+
+      if(thr == 1) cout << "Error " << thr<< " - size_data <= 0"  << endl;
+
+      if(thr == 2) cout << "Error " << thr<< " - length_filter <= 0"  << endl;
+      
+    }
 
     auto cl2 = clock( );
 
