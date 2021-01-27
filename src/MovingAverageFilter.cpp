@@ -43,6 +43,9 @@ void MovingAverageFilter<T>::clear() {
 template <typename T>
 void MovingAverageFilter<T>::set_size_window(int length_window){
 
+	if(length_window <= 0)
+  		throw 2;
+  	
 	set_filter_length = true;
 	filter_length = length_window;
 }

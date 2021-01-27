@@ -1,5 +1,4 @@
-#include <iostream>                          // для оператора cout
-#include <cassert>
+//#include "header/MovingAverageFilter.h"                      
 
 template <typename T>
 void moving_average_filter(T * input_data, T * output_data, int size_data, int filter_length){
